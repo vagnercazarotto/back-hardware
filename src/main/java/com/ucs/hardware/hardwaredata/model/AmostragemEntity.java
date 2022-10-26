@@ -1,16 +1,26 @@
 package com.ucs.hardware.hardwaredata.model;
 
+
+
+import javax.persistence.*;
 import java.sql.Timestamp;
 import java.util.Objects;
 
+//@Entity
+//@Table(name = "vehicle", schema = "public")
 public class AmostragemEntity {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
+    @Column(name = "tensao")
     private float tensao;
 
+    @Column(name = "corrente")
     private float corrente;
 
+    @Column(name = "time")
     private Timestamp time;
 
     public AmostragemEntity(int id, float tensao, float corrente, Timestamp time) {
