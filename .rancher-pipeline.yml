@@ -2,7 +2,7 @@ stages:
 - name: Build
   steps:
   - runScriptConfig:
-      image: java:8
+      image: java:11
       shellScript: |-
         mkdir -p /java/src/github.com/rancher
         ln -s `pwd` /java/src/github.com/rancher/pipeline-java
