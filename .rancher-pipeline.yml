@@ -1,0 +1,23 @@
+stages:
+- name: Build
+  steps:
+  - runScriptConfig:
+      image: java:8
+      shellScript: |-
+        mkdir -p /java/src/github.com/rancher
+        ln -s `pwd` /java/src/github.com/rancher/pipeline-java
+        cd /java/src/github.com/rancher/pipeline-java
+        mvn clean install
+- name: Publish
+  steps:
+  - publishImageConfig:
+      dockerfilePath: ./Dockerfile
+      buildContext: .
+      tag: java-server:${CICD_EXECUTION_SEQUENCE}
+      registry: 127.0.0.1:34252
+- name: . Deploy
+  steps:
+  - applyYamlConfig:
+      path: ./deployment.yaml
+timeout: 60
+notification: {}
