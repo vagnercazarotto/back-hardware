@@ -2,12 +2,18 @@ package com.ucs.hardware.hardwaredata.model;
 
 
 
+import lombok.Data;
+import lombok.RequiredArgsConstructor;
+
 import javax.persistence.*;
 import java.sql.Timestamp;
 import java.util.Objects;
 
-//@Entity
-//@Table(name = "vehicle", schema = "public")
+
+@Entity
+@Data
+@Table(name = "amostragem")
+@RequiredArgsConstructor
 public class AmostragemEntity {
 
     @Id
@@ -28,9 +34,6 @@ public class AmostragemEntity {
         this.tensao = tensao;
         this.corrente = corrente;
         this.time = time;
-    }
-
-    public AmostragemEntity() {
     }
 
     public int getId() {
