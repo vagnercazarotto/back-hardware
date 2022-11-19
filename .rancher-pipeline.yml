@@ -11,11 +11,11 @@ stages:
 - name: Publish
   steps:
   - publishImageConfig:
-      dockerfilePath: ./dockerfile
+      dockerfilePath: ./Dockerfile
       buildContext: .
       tag: java-server:${CICD_EXECUTION_SEQUENCE}
       registry: 127.0.0.1:34252
-- name: . Deploy
+- name: Deploy
   steps:
   - applyYamlConfig:
       path: ./deployment.yaml
