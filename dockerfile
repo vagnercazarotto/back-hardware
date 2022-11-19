@@ -1,4 +1,4 @@
-FROM registry.app.corpintra.net/tsy-24x7/base
+FROM eclipse-temurin
 WORKDIR /opt/app
 ARG JAR_FILE=target/*.jar
 COPY ${JAR_FILE} app.jar
