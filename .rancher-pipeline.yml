@@ -4,10 +4,10 @@ stages:
   - runScriptConfig:
       image: vacazarottoaws/springucs:latest
       shellScript: |-
-        mkdir -p /java/src/github.com/rancher
-        ln -s `pwd` /java/src/github.com/rancher/pipeline-java
-        cd /java/src/github.com/rancher/pipeline-java
-        mvn clean install
+        mkdir -p /opt/app
+        ln -s `pwd` /opt/app/pipeline-java
+        cd /opt/app/pipeline-java
+
 - name: Publish
   steps:
   - publishImageConfig:
