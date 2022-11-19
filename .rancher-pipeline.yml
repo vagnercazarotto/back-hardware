@@ -7,7 +7,6 @@ stages:
         mkdir -p /opt/app
         ln -s `pwd` /opt/app/pipeline-java
         cd /opt/app/pipeline-java
-
 - name: Publish
   steps:
   - publishImageConfig:
@@ -18,6 +17,6 @@ stages:
 - name: Deploy
   steps:
   - applyYamlConfig:
-      path: ./Deployment.yaml
+      path: /Deployment.yaml
 timeout: 60
 notification: {}
