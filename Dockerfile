@@ -3,5 +3,5 @@ WORKDIR /opt/app
 ARG JAR_FILE=target/*.jar
 COPY hardwaredata-0.0.1-SNAPSHOT.jar app.jar
 EXPOSE 8080 8443
-ENTRYPOINT exec java  -jar hardwaredata-0.0.1-SNAPSHOT.jar app.jar
+ENTRYPOINT exec java $JAVA_OPTS -jar app.jar
 
