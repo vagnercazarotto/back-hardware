@@ -59,4 +59,18 @@ public class OpenEndpointResource {
 
         return repo.selectAll();
     }
+
+
+    @Operation(summary = "EndPoint to store data into database")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "202", description = "Accepted operation, in work ...",
+                    content = {@Content(mediaType = "application/json", schema = @Schema())}),
+            @ApiResponse(responseCode = "400", description = "Invalid request, check VIN and Shop ID",
+                    content = @Content)})
+    @GetMapping(path = "/findLastAmostragem")
+    @CrossOrigin(origins = "http://localhost:3000", maxAge = 3600)
+    public AmostragemEntity findLastAmostragem() {
+
+        return repo.findLastOne();
+    }
 }

@@ -14,4 +14,7 @@ public interface IRepo extends JpaRepository<AmostragemEntity, Long> {
     @Query(value = "SELECT * FROM amostragem", nativeQuery = true)
     List<AmostragemEntity> selectAll();
 
+    @Query(value = "SELECT * FROM amostragem ORDER BY id DESC limit 1", nativeQuery = true)
+    AmostragemEntity findLastOne();
+
 }
